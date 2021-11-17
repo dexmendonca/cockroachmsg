@@ -7,13 +7,16 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "rm dist -Rf && tsc  -b  && cp ./package.json ./dist/package.json && cp ./.env ./dist/.env && cp ./.env.example ./dist/.env.example ",
-    "dev": "npx nodemon  --watch src --exec 'npx ts-node src/app/server.ts' -e ts,js,json"
+    "build:macos": "rm -rf dist && tsc  -b  && cp ./package.json ./dist/package.json && cp ./.env ./dist/.env && cp ./.env.example ./dist/.env.example ",
+    "build:linux": "rm dist -Rf && tsc  -b  && cp ./package.json ./dist/package.json && cp ./.env ./dist/.env && cp ./.env.example ./dist/.env.example ",
+    "dev": "npx nodemon  --watch src --exec 'npx ts-node src/app/server.ts' -e ts,js,json",
+    "dev:ws": "npx nodemon  --watch src --exec 'npx ts-node src/app/ws/index.ts' -e ts,js,json"
   },
   "devDependencies": {
     "@types/dotenv-safe": "^8.1.2",
     "@types/node": "^16.11.7",
     "@types/pg": "^8.6.1",
+    "@types/ws": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.32.0",
@@ -31,6 +34,7 @@
     "fastify": "^3.24.0",
     "fastify-knexjs": "^1.4.0",
     "knex": "^0.95.14",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "ws": "^8.2.3"
   }
 }
