@@ -8,7 +8,7 @@ server.get('/', async (req, res) => {
 	res.send({});
 });
 
-server.listen(3333, (err, address) => {
+server.listen(3333, '0.0.0.0', (err, address) => {
 	if (err) {
 		console.error(err);
 		process.exit(1);
